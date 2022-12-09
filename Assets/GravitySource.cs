@@ -6,9 +6,9 @@ public class GravitySource : MonoBehaviour
 {
     [SerializeField] internal float radius;
     [SerializeField] internal float mass;
-
+    [SerializeField] internal Transform haloTransform;
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, radius);
+        haloTransform.localScale = Vector3.one * radius / 10f;
     }
 }

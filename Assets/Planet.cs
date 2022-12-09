@@ -6,13 +6,21 @@ public class Planet : MonoBehaviour
 {
     [SerializeField] float mass;
     [SerializeField] float thrustForce;
-    Rigidbody rb;
+    [SerializeField] int playerId = 0;
+    [SerializeField] float controlSensitivity = 1f;
+    Rigidbody2D rb;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.forward * thrustForce, ForceMode.Impulse);
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
         Destroy(gameObject, 30);
+    }
+
+    Vector2 axisInput = Vector2.zero;
+    private void Update()
+    {
+        axisInput.y = Input.GetAxis("Vertical");
     }
 
     private void FixedUpdate()
@@ -30,8 +38,7 @@ public class Planet : MonoBehaviour
             }
         }
 
-        finalForceVector += thrustForce * rb.transform.forward;
-        rb.AddForce(finalForceVector, ForceMode.Force);
+        rb.AddForce(finalForceVector, ForceMode2D.Force);
         //rb.transform.position += finalForceVector;
 
         rb.transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
