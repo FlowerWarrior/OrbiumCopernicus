@@ -6,29 +6,26 @@ public class PlanetSpawner : MonoBehaviour
 {
     [SerializeField] GameObject planetPrefab;
 
+    public static PlanetSpawner instance;
     GameObject spawnedEarth = null;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void OnEnable()
     {
-        //Instantiate(planetPrefab, transform.position, transform.rotation);
+        
     }
 
-    private void Update()
+    public void SpawnEarthIfAvailable()
     {
-        if (Input.GetButtonDown("Jump") && spawnedEarth == null)
-        {
-            spawnedEarth = Instantiate(planetPrefab, transform.position, transform.rotation);
-        }
-    }
+        if (spawnedEarth != null)
+            return;
 
-    IEnumerator SpawnRoutine()
-    {
-        while (true)
-        {
-            Instantiate(planetPrefab, transform.position, transform.rotation);
-            yield return new WaitForSeconds(1);
-        }
+        Instantiate(planetPrefab, transform.position, transform.rotation);
     }
 
     private void OnDrawGizmos()

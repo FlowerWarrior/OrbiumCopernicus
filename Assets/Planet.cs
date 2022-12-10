@@ -8,12 +8,13 @@ public class Planet : MonoBehaviour
     [SerializeField] float thrustForce;
     [SerializeField] int playerId = 0;
     [SerializeField] float controlSensitivity = 1f;
+    [SerializeField] Transform trail;
     Rigidbody2D rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(Vector3.up * thrustForce, ForceMode2D.Impulse);
+        rb.AddForce(rb.transform.up * thrustForce, ForceMode2D.Impulse);
         Destroy(gameObject, 30);
     }
 
@@ -34,7 +35,7 @@ public class Planet : MonoBehaviour
             float distance = Vector3.Distance(rb.transform.position, sources[i].transform.position);
             if (distance < sources[i].radius)
             {
-                finalForceVector += direction * sources[i].mass * 1/distance;
+                finalForceVector += direction * sources[i].mass * 1/distance * 1 / distance;
             }
         }
 
@@ -44,8 +45,15 @@ public class Planet : MonoBehaviour
         rb.transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        trail.parent = trail.parent;
+        Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
+        trail.parent = trail.parent;
         Destroy(gameObject);
     }
 }
