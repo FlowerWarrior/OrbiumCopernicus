@@ -32,7 +32,7 @@ public class StarsMgr : MonoBehaviour
 
     void SaveStars()
     {
-        if (stars > PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentSceneIndex() - 2}"))
+        if (stars > PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentSceneIndex() - 2}", -1))
         {
             PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentSceneIndex() - 2 }", stars);
 
