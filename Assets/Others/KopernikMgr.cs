@@ -8,6 +8,7 @@ public class KopernikMgr : MonoBehaviour
 
     public static KopernikMgr instance;
     public static System.Action FreezeSun;
+    public static System.Action KickedEarth;
 
     private void Awake()
     {
@@ -61,6 +62,7 @@ public class KopernikMgr : MonoBehaviour
     public void SendSpawnEarth()
     {
         PlanetSpawner.instance.SpawnEarthIfAvailable();
+        KickedEarth?.Invoke();
         FreezeSun?.Invoke();
     }
 }

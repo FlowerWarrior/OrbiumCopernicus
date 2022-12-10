@@ -16,6 +16,8 @@ public class Planet : MonoBehaviour
     Rigidbody2D rb;
 
     public static System.Action Destroyed;
+    public static System.Action Exploded;
+    public static System.Action LevelCompleted;
 
     private void Start()
     {
@@ -87,6 +89,7 @@ public class Planet : MonoBehaviour
     IEnumerator LevelCompletedRoutine()
     {
         UIMGR.instance.ShowCompletedScreen();
+        LevelCompleted?.Invoke();
         yield return new WaitForSeconds(2);
         SceneMgr.instance.OpenNextLevel();
     }
@@ -100,6 +103,7 @@ public class Planet : MonoBehaviour
         if (collision.collider.tag == "Obstacle")
         {
             Instantiate(explosionParticles, transform.position, transform.rotation);
+            Exploded?.Invoke();
         }
     }
 }
