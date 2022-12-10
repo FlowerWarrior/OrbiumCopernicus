@@ -20,12 +20,19 @@ public class StarsMgr : MonoBehaviour
     {
         Star.Collected += AddToStars;
         Planet.Destroyed += ResetStars;
+        Planet.LevelCompleted += SaveStars;
     }
 
     private void OnDisable()
     {
         Star.Collected -= AddToStars;
         Planet.Destroyed -= ResetStars;
+        Planet.LevelCompleted -= SaveStars;
+    }
+
+    void SaveStars()
+    {
+        PlayerPrefs.SetInt("totalStars", stars);
     }
 
     private void ResetStars()

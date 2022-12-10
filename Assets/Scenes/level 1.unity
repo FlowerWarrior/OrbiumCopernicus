@@ -1746,11 +1746,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5401897945455527885, guid: 1173b145cf1325b43a37a634452af324,
         type: 3}
-      propertyPath: objectsToRespawn.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5401897945455527885, guid: 1173b145cf1325b43a37a634452af324,
-        type: 3}
       propertyPath: objectsToRespawn.Array.data[0]
       value: 
       objectReference: {fileID: 89715562}

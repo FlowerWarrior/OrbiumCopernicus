@@ -51,4 +51,5 @@ MonoBehaviour:
   audioCollectStar: {fileID: 0}
   levelCompleted: {fileID: 8300000, guid: f94809e8f31c4e042b13efb0d667076a, type: 3}
   buttonKickoff: {fileID: 8300000, guid: 44cbbb06e59b2b94e8faeb81c9cfe34c, type: 3}
-  earthKicked: {fileID: 0}
+  earthKicked: {fileID: 8300000, guid: f9f49ecd095719d4aa8a6862002b8b43, type: 3}
+  earthExplosion: {fileID: 0}

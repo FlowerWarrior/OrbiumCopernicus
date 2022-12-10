@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
         KopernikMgr.KickedEarth += PlayEarthKicked;
         Planet.LevelCompleted += PlayLevelCompleted;
         Planet.Exploded += PlayEarthExplosion;
+        Draggable.PickedUp += PlayPickedUp;
+        Draggable.Dropped += PlayDropped;
     }
 
     private void OnDisable()
@@ -38,6 +40,8 @@ public class AudioManager : MonoBehaviour
         KopernikMgr.KickedEarth -= PlayEarthKicked;
         Planet.LevelCompleted -= PlayLevelCompleted;
         Planet.Exploded -= PlayEarthExplosion;
+        Draggable.PickedUp -= PlayPickedUp;
+        Draggable.Dropped -= PlayDropped;
     }
 
     private void PlayButtonKickoff()
@@ -63,5 +67,15 @@ public class AudioManager : MonoBehaviour
     private void PlayEarthExplosion()
     {
         PlayAudioEffect(earthExplosion);
+    }
+
+    private void PlayPickedUp()
+    {
+        print("pickedup");
+        PlayAudioEffect(audioPickup);
+    }
+    private void PlayDropped()
+    {
+        PlayAudioEffect(audioDrop);
     }
 }
