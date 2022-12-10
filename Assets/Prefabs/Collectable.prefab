@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8247619192154294701}
   - component: {fileID: 5714570011199952200}
   m_Layer: 0
-  m_Name: Star 1
+  m_Name: Collectable
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2407584793792494318}
   m_LocalRotation: {x: -0.015707303, y: 0, z: 0, w: 0.9998767}
-  m_LocalPosition: {x: -9.26, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.13, y: 2.13, z: 2.13}
   m_ConstrainProportionsScale: 1
   m_Children:

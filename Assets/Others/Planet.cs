@@ -29,6 +29,7 @@ public class Planet : MonoBehaviour
         axisInput.y = Input.GetAxis("Vertical");
     }
 
+    Transform sunPoint = null;
     private void FixedUpdate()
     {
         Vector3 finalForceVector = Vector3.zero;
@@ -52,15 +53,27 @@ public class Planet : MonoBehaviour
                     }
                     else
                     {
-                        rb.bodyType = RigidbodyType2D.Static;
-                        transform.parent = sources[i].transform.GetChild(0).GetChild(0);
+                        //rb.bodyType = RigidbodyType2D.Static;
+                        //transform.parent = sources[i].transform.GetChild(0).GetChild(0);
+                        //orbitSun = true;
+                        sunPoint = sources[i].transform;
                         StartCoroutine(LevelCompletedRoutine());
                     }
                 }
             }
         }
-
-        rb.AddForce(finalForceVector, ForceMode2D.Force);
+        
+        if (sunPoint == null)
+        {
+            rb.AddForce(finalForceVector, ForceMode2D.Force);
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            float speed = 1;
+            Vector3 orbitVector = rb.transform.forward * speed + (sunPoint.position - transform.position) * speed;
+            rb.AddForce(orbitVector);
+        }
         //rb.transform.position += finalForceVector;
 
         rb.transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
