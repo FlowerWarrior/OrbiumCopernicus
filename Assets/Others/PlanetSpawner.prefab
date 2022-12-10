@@ -122,8 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 864600810ae68f94e92bbf5f56589149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToRespawn:
-  - {fileID: 0}
+  objectsToRespawn: []
   planetPrefab: {fileID: 8239326134293403576, guid: 7400f77e9846e5447be237fa85ca92d4,
     type: 3}
   animator: {fileID: 5401897945455527874}

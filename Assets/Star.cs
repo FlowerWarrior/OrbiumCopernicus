@@ -7,6 +7,12 @@ public class Star : MonoBehaviour
     public static System.Action Collected;
     [SerializeField] GameObject collectedParticles;
 
+    private void Start()
+    {
+        Animator animator = GetComponent<Animator>();
+        animator.Play("starIdle", 0, Random.Range(0, 1));
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Collected?.Invoke();

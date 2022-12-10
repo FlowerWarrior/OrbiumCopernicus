@@ -14,6 +14,16 @@ public class KopernikMgr : MonoBehaviour
         instance = this;
     }
 
+    private void OnEnable()
+    {
+        Planet.Destroyed += ResetVar;
+    }
+
+    private void OnDisable()
+    {
+        Planet.Destroyed -= ResetVar;
+    }
+
     public void PlayFreezeSun()
     {
         animator.Play("koperikSun", 0, 0);
@@ -24,9 +34,19 @@ public class KopernikMgr : MonoBehaviour
         FreezeSun?.Invoke();
     }
 
+    private void ResetVar()
+    {
+        didSpawnAnim = false;
+    }
+
+    bool didSpawnAnim = false;
     public void PlayKickTheBall()
     {
-        animator.Play("kopernikKick", 0, 0);
+        if (!didSpawnAnim)
+        {
+            animator.Play("kopernikKick", 0, 0);
+            didSpawnAnim = true;
+        }
     }
 
     public void SendSpawnEarth()

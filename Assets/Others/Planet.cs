@@ -11,6 +11,7 @@ public class Planet : MonoBehaviour
     [SerializeField] Transform trail;
     [SerializeField] LayerMask sunLayer;
     [SerializeField] GameObject explosionParticles;
+    [SerializeField] float sunOrbitSpeed = 500f;
 
     Rigidbody2D rb;
 
@@ -39,11 +40,17 @@ public class Planet : MonoBehaviour
         {
             Vector3 direction = sources[i].transform.position - transform.position;
             float distance = Vector3.Distance(rb.transform.position, sources[i].transform.position);
+
+            if (sources[i].tag == "Sun")
+            {
+                distance = Vector3.Distance(rb.transform.position, sources[i].transform.GetChild(0).position);
+            }
+
             if (distance < sources[i].radius)
             {
                 finalForceVector += direction * sources[i].mass * 1/distance * 1 / distance;
 
-                if (sources[i].tag == "Sun" && distance < sources[i].radius -1)
+                if (sources[i].tag == "Sun" && distance < sources[i].radius - 0.1f)
                 {
                     RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
@@ -53,10 +60,9 @@ public class Planet : MonoBehaviour
                     }
                     else
                     {
-                        //rb.bodyType = RigidbodyType2D.Static;
-                        //transform.parent = sources[i].transform.GetChild(0).GetChild(0);
-                        //orbitSun = true;
-                        sunPoint = sources[i].transform;
+                        rb.bodyType = RigidbodyType2D.Static;
+                        transform.parent = sources[i].transform.GetChild(0).GetChild(0);
+                        //sunPoint = sources[i].transform;
                         StartCoroutine(LevelCompletedRoutine());
                     }
                 }
@@ -69,10 +75,9 @@ public class Planet : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector3.zero;
-            float speed = 1;
-            Vector3 orbitVector = rb.transform.forward * speed + (sunPoint.position - transform.position) * speed;
-            rb.AddForce(orbitVector);
+            //rb.velocity = Vector3.zero;
+            //Vector3 orbitVector = rb.transform.forward + (sunPoint.position - rb.transform.position);
+            //rb.AddForce(orbitVector * sunOrbitSpeed);
         }
         //rb.transform.position += finalForceVector;
 

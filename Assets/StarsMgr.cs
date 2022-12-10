@@ -7,7 +7,14 @@ public class StarsMgr : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI starsText;
 
+    Animator animator;
+
     int stars = 0;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void OnEnable()
     {
@@ -31,5 +38,6 @@ public class StarsMgr : MonoBehaviour
     {
         stars++;
         starsText.text = $"Stars {stars}/3";
+        animator.Play("starTxt", 0, 0);
     }
 }
