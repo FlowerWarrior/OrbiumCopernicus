@@ -23,6 +23,16 @@ public class SceneMgr : MonoBehaviour
         Application.Quit();
     }
 
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OpenLevelSelector()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void OpenLevel(int id)
     {
         SceneManager.LoadScene($"level {id}");

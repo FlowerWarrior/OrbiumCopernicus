@@ -687,8 +687,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 287365879}
         m_TargetAssemblyTypeName: SceneMgr, Assembly-CSharp
-        m_MethodName: OpenLevel
-        m_Mode: 3
+        m_MethodName: OpenLevelSelector
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
