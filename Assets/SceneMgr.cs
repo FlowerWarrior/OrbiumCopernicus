@@ -12,6 +12,22 @@ public class SceneMgr : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
+        QualitySettings.vSyncCount = 1;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void OpenLevel(int id)
+    {
+        SceneManager.LoadScene($"level {id}");
+    }
+
     public void OpenNextLevel()
     {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;

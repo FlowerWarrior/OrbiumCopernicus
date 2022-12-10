@@ -68,6 +68,7 @@ public class Planet : MonoBehaviour
 
     IEnumerator LevelCompletedRoutine()
     {
+        UIMGR.instance.ShowCompletedScreen();
         yield return new WaitForSeconds(2);
         SceneMgr.instance.OpenNextLevel();
     }
