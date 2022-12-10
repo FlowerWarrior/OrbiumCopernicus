@@ -8,6 +8,7 @@ TagManager:
   - BlackHole
   - Obstacle
   - Star
+  - Bounds
   layers:
   - Default
   - TransparentFX

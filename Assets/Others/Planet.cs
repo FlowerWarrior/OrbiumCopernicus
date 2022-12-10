@@ -54,6 +54,7 @@ public class Planet : MonoBehaviour
                     {
                         rb.bodyType = RigidbodyType2D.Static;
                         transform.parent = sources[i].transform.GetChild(0).GetChild(0);
+                        StartCoroutine(LevelCompletedRoutine());
                     }
                 }
             }
@@ -63,6 +64,12 @@ public class Planet : MonoBehaviour
         //rb.transform.position += finalForceVector;
 
         rb.transform.rotation = Quaternion.LookRotation(rb.velocity, Vector3.up);
+    }
+
+    IEnumerator LevelCompletedRoutine()
+    {
+        yield return new WaitForSeconds(2);
+        SceneMgr.instance.OpenNextLevel();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
