@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sun
   - BlackHole
+  - Obstacle
   layers:
   - Default
   - TransparentFX

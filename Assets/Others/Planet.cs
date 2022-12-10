@@ -10,6 +10,8 @@ public class Planet : MonoBehaviour
     [SerializeField] float controlSensitivity = 1f;
     [SerializeField] Transform trail;
     [SerializeField] LayerMask sunLayer;
+    [SerializeField] GameObject explosionParticles;
+
     Rigidbody2D rb;
 
     public static System.Action Destroyed;
@@ -40,7 +42,7 @@ public class Planet : MonoBehaviour
             {
                 finalForceVector += direction * sources[i].mass * 1/distance * 1 / distance;
 
-                if (sources[i].tag == "Sun" && distance < sources[i].radius)
+                if (sources[i].tag == "Sun" && distance < sources[i].radius -1)
                 {
                     RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
@@ -68,5 +70,10 @@ public class Planet : MonoBehaviour
         trail.parent = trail.parent;
         Destroyed?.Invoke();
         Destroy(gameObject);
+
+        if (collision.collider.tag == "Obstacle")
+        {
+            Instantiate(explosionParticles, transform.position, transform.rotation);
+        }
     }
 }
