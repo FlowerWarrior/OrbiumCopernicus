@@ -198,7 +198,7 @@ MonoBehaviour:
   movePoints:
   - {fileID: 1856737575}
   - {fileID: 799984483}
-  moveSpeed: 1
+  moveSpeed: 0.6
   movingSun: {fileID: 896798994}
 --- !u!1 &2912548657183074648
 GameObject:
@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 7844543490114561476}
   - component: {fileID: 6589523993364965985}
   - component: {fileID: 8977440291069779627}
+  - component: {fileID: 44545997}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -376,7 +377,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4874126678125670354, guid: d68142b0d10720b4796163f11cae19ae, type: 3}
+  - {fileID: 2100000, guid: 31231a8ac2b5db64893d8c40c256e28c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -398,3 +399,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &44545997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464358016265092990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4bb9eb4be5ae9b41853b62cd5aacf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomization: 10
+  rotVector: {x: 0, y: 100, z: 50}

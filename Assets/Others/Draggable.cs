@@ -25,8 +25,8 @@ public class Draggable : MonoBehaviour
     private void OnMouseExit()
     {
         CursorMgr.instance.SetCursorDefault();
+        print("mouse exit");
     }
-
     void OnMouseDown()
     {
         Vector3 screenPos = Input.mousePosition;

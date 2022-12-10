@@ -21,12 +21,12 @@ public class CursorMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
+        SetCursorDefault();
     }
 
     public void SetCursorDefault()
     {
-        Cursor.SetCursor(cursorHover, hotSpot, cursorMode);
+        Cursor.SetCursor(cursorDefault, hotSpot, cursorMode);
     }
 
     public void SetCursorToHover()
