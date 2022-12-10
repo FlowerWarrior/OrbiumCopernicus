@@ -91,7 +91,7 @@ public class Planet : MonoBehaviour
         UIMGR.instance.ShowCompletedScreen();
         LevelCompleted?.Invoke();
         yield return new WaitForSeconds(2);
-        SceneMgr.instance.OpenNextLevel();
+        SceneMgr.instance.OpenLevelSelector();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

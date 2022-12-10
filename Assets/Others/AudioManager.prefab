@@ -46,10 +46,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempAudioPrefab: {fileID: 3790084908981868703, guid: 20b245be291859045a5382c999953707,
     type: 3}
-  audioPickup: {fileID: 8300000, guid: 7ee8d8c9e8945f44681c1609991afa8a, type: 3}
-  audioDrop: {fileID: 8300000, guid: b742f79ecd23c2844ad0f8489b3cb4cb, type: 3}
-  audioCollectStar: {fileID: 0}
-  levelCompleted: {fileID: 8300000, guid: f94809e8f31c4e042b13efb0d667076a, type: 3}
-  buttonKickoff: {fileID: 8300000, guid: 44cbbb06e59b2b94e8faeb81c9cfe34c, type: 3}
-  earthKicked: {fileID: 8300000, guid: f9f49ecd095719d4aa8a6862002b8b43, type: 3}
-  earthExplosion: {fileID: 0}
+  audioPickup:
+    clip: {fileID: 8300000, guid: 7ee8d8c9e8945f44681c1609991afa8a, type: 3}
+    volume: 0.13
+  audioDrop:
+    clip: {fileID: 8300000, guid: b742f79ecd23c2844ad0f8489b3cb4cb, type: 3}
+    volume: 0.13
+  audioCollectStar:
+    clip: {fileID: 8300000, guid: ce5a3863a249520458f6fa083dd7a689, type: 3}
+    volume: 1
+  levelCompleted:
+    clip: {fileID: 8300000, guid: f94809e8f31c4e042b13efb0d667076a, type: 3}
+    volume: 1
+  buttonKickoff:
+    clip: {fileID: 8300000, guid: 44cbbb06e59b2b94e8faeb81c9cfe34c, type: 3}
+    volume: 1
+  earthKicked:
+    clip: {fileID: 8300000, guid: f9f49ecd095719d4aa8a6862002b8b43, type: 3}
+    volume: 1
+  earthExplosion:
+    clip: {fileID: 8300000, guid: bb894858aa8a6aa4ab06d816ecc2a328, type: 3}
+    volume: 1

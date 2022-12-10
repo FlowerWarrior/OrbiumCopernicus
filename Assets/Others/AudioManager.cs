@@ -5,21 +5,30 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] GameObject tempAudioPrefab;
-    [SerializeField] AudioClip audioPickup;
-    [SerializeField] AudioClip audioDrop;
-    [SerializeField] AudioClip audioCollectStar;
-    [SerializeField] AudioClip levelCompleted;
-    [SerializeField] AudioClip buttonKickoff;
-    [SerializeField] AudioClip earthKicked;
-    [SerializeField] AudioClip earthExplosion;
+    [SerializeField] AudioField audioPickup;
+    [SerializeField] AudioField audioDrop;
+    [SerializeField] AudioField audioCollectStar;
+    [SerializeField] AudioField levelCompleted;
+    [SerializeField] AudioField buttonKickoff;
+    [SerializeField] AudioField earthKicked;
+    [SerializeField] AudioField earthExplosion;
 
-    private void PlayAudioEffect(AudioClip clip)
+    [System.Serializable]
+    public struct AudioField
     {
-        if (clip == null)
+        public AudioClip clip;
+        public float volume;
+    }
+
+    private void PlayAudioEffect(AudioField audioField)
+    {
+        if (audioField.clip == null)
             return;
 
         GameObject obj = Instantiate(tempAudioPrefab).gameObject;
-        tempAudioPrefab.GetComponent<AudioSource>().clip = clip;
+        obj.GetComponent<AudioSource>().clip = audioField.clip;
+        obj.GetComponent<AudioSource>().volume = audioField.volume;
+        obj.GetComponent<AudioSource>().Play();
     }
 
     private void OnEnable()
@@ -56,7 +65,6 @@ public class AudioManager : MonoBehaviour
 
     private void PlayEarthKicked()
     {
-        print("kicked audio");
         PlayAudioEffect(earthKicked);
     }
 
