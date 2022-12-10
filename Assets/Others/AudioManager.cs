@@ -56,6 +56,7 @@ public class AudioManager : MonoBehaviour
 
     private void PlayEarthKicked()
     {
+        print("kicked audio");
         PlayAudioEffect(earthKicked);
     }
 
