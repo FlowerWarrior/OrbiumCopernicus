@@ -40,6 +40,15 @@ public class KopernikMgr : MonoBehaviour
     }
 
     bool didSpawnAnim = false;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            PlayKickTheBall();
+        }
+    }
+
     public void PlayKickTheBall()
     {
         if (!didSpawnAnim)
