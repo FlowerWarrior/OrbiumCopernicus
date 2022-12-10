@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 751030632}
   - component: {fileID: 751030631}
   - component: {fileID: 751030633}
+  - component: {fileID: 1198252324}
   m_Layer: 5
   m_Name: Stars Mgr
   m_TagString: Untagged
@@ -165,7 +166,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6709919806283440450}
   m_RootOrder: 1
@@ -285,6 +286,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starsText: {fileID: 751030631}
+--- !u!95 &1198252324
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751030629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ebc335d35878d34eba56ee19d60b548, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &929799056
 GameObject:
   m_ObjectHideFlags: 0

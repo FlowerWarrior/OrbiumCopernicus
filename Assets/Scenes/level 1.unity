@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,22 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 751030630, guid: c0a0dda8ad561674797d2941c816a3e1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 751030630, guid: c0a0dda8ad561674797d2941c816a3e1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 751030630, guid: c0a0dda8ad561674797d2941c816a3e1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 751030630, guid: c0a0dda8ad561674797d2941c816a3e1, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6709919806283440450, guid: c0a0dda8ad561674797d2941c816a3e1,
         type: 3}
       propertyPath: m_Pivot.x
@@ -492,25 +476,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2705021297698437640}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &624685562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2150878088878563562, guid: 29401464fc971e04a85819cd99ff6e58,
-    type: 3}
-  m_PrefabInstance: {fileID: 2150878088359374201}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &624685564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624685562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1da690c8e64dd1144bc4415aa5d28813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempAudioPrefab: {fileID: 0}
 --- !u!1001 &787050460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -794,32 +759,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b96fae93f3398c4695b40696109cf55, type: 3}
---- !u!1 &1198252319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 751030629, guid: c0a0dda8ad561674797d2941c816a3e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 89715561}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1198252324
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1198252319}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ebc335d35878d34eba56ee19d60b548, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1404952262
 PrefabInstance:
   m_ObjectHideFlags: 0
