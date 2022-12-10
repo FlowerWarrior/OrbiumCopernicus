@@ -9,7 +9,10 @@ public class Planet : MonoBehaviour
     [SerializeField] int playerId = 0;
     [SerializeField] float controlSensitivity = 1f;
     [SerializeField] Transform trail;
+    [SerializeField] LayerMask sunLayer;
     Rigidbody2D rb;
+
+    public static System.Action Destroyed;
 
     private void Start()
     {
@@ -36,6 +39,21 @@ public class Planet : MonoBehaviour
             if (distance < sources[i].radius)
             {
                 finalForceVector += direction * sources[i].mass * 1/distance * 1 / distance;
+
+                if (sources[i].tag == "Sun" && distance < sources[i].radius)
+                {
+                    RaycastHit hit;
+                    // Does the ray intersect any objects excluding the player layer
+                    if (Physics.Raycast(transform.position, rb.transform.forward, out hit, 1000, sunLayer))
+                    {
+                        // on tracjectory to hit sun
+                    }
+                    else
+                    {
+                        rb.bodyType = RigidbodyType2D.Static;
+                        transform.parent = sources[i].transform.GetChild(0).GetChild(0);
+                    }
+                }
             }
         }
 
@@ -48,12 +66,7 @@ public class Planet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         trail.parent = trail.parent;
-        Destroy(gameObject);
-    }
-
-    private void OnBecameInvisible()
-    {
-        trail.parent = trail.parent;
+        Destroyed?.Invoke();
         Destroy(gameObject);
     }
 }

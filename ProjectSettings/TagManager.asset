@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sun
+  - BlackHole
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Sun
   - Water
   - UI
   - 

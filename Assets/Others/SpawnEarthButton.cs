@@ -6,6 +6,10 @@ public class SpawnEarthButton : MonoBehaviour
 {
     public void ClickedSpawnEarth()
     {
-        PlanetSpawner.instance.SpawnEarthIfAvailable();
+        if (PlanetSpawner.instance.spawnedEarth == null)
+        {
+            KopernikMgr.instance.PlayKickTheBall();
+
+        }
     }
 }
