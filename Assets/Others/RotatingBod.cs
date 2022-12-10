@@ -18,6 +18,6 @@ public class RotatingBod : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(rotVector * Time.deltaTime);
+        transform.Rotate(rotVector * Time.deltaTime, Space.Self);
     }
 }
