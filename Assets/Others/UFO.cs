@@ -9,6 +9,8 @@ public class UFO : MonoBehaviour
     [SerializeField] float teleportOffset = -8f;
     bool didTeleport = false;
 
+    float teleportTimer = 999f;
+
     private void OnEnable()
     {
         PlanetSpawner.ResetLevel += ResetUfo;
@@ -27,29 +29,46 @@ public class UFO : MonoBehaviour
     {
         if (other.tag == "Player" && !didTeleport)
         {
-            Rigidbody2D playerRb = other.gameObject.GetComponent<Rigidbody2D>();
-            StartCoroutine(TeleportRoutine(playerRb));
+            playerRb = other.gameObject.GetComponent<Rigidbody2D>();
             didTeleport = true;
+
+            ray.SetActive(true);
+            playerRb.transform.GetChild(0).gameObject.SetActive(false);
+
+            savedVelocity = playerRb.velocity;
+            playerRb.bodyType = RigidbodyType2D.Static;
+
+            initialPos = playerRb.transform.position;
+            targetPos = playerRb.transform.position + Vector3.up * teleportOffset;
+
+            teleportTimer = 0f;
+
+            StartCoroutine(ReleaseAfterRoutine());
+        }
+    }
+    Rigidbody2D playerRb = null;
+    Vector3 initialPos, targetPos;
+    Vector3 savedVelocity;
+
+    private void Update()
+    {
+        if (teleportTimer < teleportTime)
+        {
+            teleportTimer += Time.deltaTime;
+            playerRb.transform.position = Vector3.Lerp(initialPos, targetPos, teleportTimer / teleportTime);
         }
     }
 
-    IEnumerator TeleportRoutine(Rigidbody2D rb)
+    IEnumerator ReleaseAfterRoutine()
     {
-        ray.SetActive(true);
-        rb.transform.GetChild(0).gameObject.SetActive(false);
-        rb.transform.GetChild(1).gameObject.SetActive(false);
-
-        Vector2 savedVelocity = rb.velocity;
-        rb.bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(teleportTime);
-        Vector3 newPos = rb.transform.position;
-        newPos.y = teleportOffset + newPos.y;
-        rb.transform.position = newPos;
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.velocity = savedVelocity;
 
-        rb.transform.GetChild(0).gameObject.SetActive(true);
-        rb.transform.GetChild(1).gameObject.SetActive(true);
+        playerRb.transform.position = targetPos;
+        playerRb.bodyType = RigidbodyType2D.Dynamic;
+        playerRb.velocity = Vector3.zero;
+        playerRb.velocity = savedVelocity;
+
+        playerRb.transform.GetChild(0).gameObject.SetActive(true);
         ray.SetActive(false);
     }
 }

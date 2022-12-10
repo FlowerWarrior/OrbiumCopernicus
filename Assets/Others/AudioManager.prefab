@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da690c8e64dd1144bc4415aa5d28813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempAudioPrefab: {fileID: 0}
+  tempAudioPrefab: {fileID: 3790084908981868703, guid: 20b245be291859045a5382c999953707,
+    type: 3}
+  audioPickup: {fileID: 8300000, guid: 7ee8d8c9e8945f44681c1609991afa8a, type: 3}
+  audioDrop: {fileID: 8300000, guid: b742f79ecd23c2844ad0f8489b3cb4cb, type: 3}
+  audioCollectStar: {fileID: 0}
+  levelCompleted: {fileID: 8300000, guid: f94809e8f31c4e042b13efb0d667076a, type: 3}
+  buttonKickoff: {fileID: 8300000, guid: 44cbbb06e59b2b94e8faeb81c9cfe34c, type: 3}
+  earthKicked: {fileID: 0}
