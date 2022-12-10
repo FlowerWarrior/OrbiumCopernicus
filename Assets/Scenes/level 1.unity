@@ -1209,21 +1209,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CursorMgr
       objectReference: {fileID: 0}
-    - target: {fileID: 1335357448047030280, guid: 7906d3305ffd8234db84120d3b624674,
-        type: 3}
-      propertyPath: cursorDrag
-      value: 
-      objectReference: {fileID: 2800000, guid: f814178be77f22d469a2c26de5003a95, type: 3}
-    - target: {fileID: 1335357448047030280, guid: 7906d3305ffd8234db84120d3b624674,
-        type: 3}
-      propertyPath: cursorHover
-      value: 
-      objectReference: {fileID: 2800000, guid: 4bcc30ec2987fb34084217c29f59f7be, type: 3}
-    - target: {fileID: 1335357448047030280, guid: 7906d3305ffd8234db84120d3b624674,
-        type: 3}
-      propertyPath: cursorDefault
-      value: 
-      objectReference: {fileID: 2800000, guid: 373da57cc3cb47840925d363c127052d, type: 3}
     - target: {fileID: 1335357448047030281, guid: 7906d3305ffd8234db84120d3b624674,
         type: 3}
       propertyPath: m_RootOrder
