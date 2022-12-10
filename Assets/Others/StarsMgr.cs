@@ -6,6 +6,7 @@ using TMPro;
 public class StarsMgr : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI starsText;
+    [SerializeField] GameObject[] activeStarsUI;
 
     Animator animator;
 
@@ -32,7 +33,15 @@ public class StarsMgr : MonoBehaviour
 
     void SaveStars()
     {
-        PlayerPrefs.SetInt("totalStars", stars);
+        for (int i = 0; i < stars; i++)
+        {
+            activeStarsUI[i].SetActive(true);
+        }
+
+        if (stars > PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentSceneIndex() - 2}", -1))
+        {
+            PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentSceneIndex() - 2 }", stars);
+        }
     }
 
     private void ResetStars()
@@ -46,5 +55,10 @@ public class StarsMgr : MonoBehaviour
         stars++;
         starsText.text = $"Stars {stars}/3";
         animator.Play("starTxt", 0, 0);
+    }
+
+    public void OpenLevelSelector()
+    {
+        SceneMgr.instance.OpenLevelSelector();
     }
 }
