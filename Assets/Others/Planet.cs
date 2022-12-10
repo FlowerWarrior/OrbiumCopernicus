@@ -32,6 +32,7 @@ public class Planet : MonoBehaviour
         axisInput.y = Input.GetAxis("Vertical");
     }
 
+    bool gameCompleted = false;
     Transform sunPoint = null;
     private void FixedUpdate()
     {
@@ -52,7 +53,7 @@ public class Planet : MonoBehaviour
             {
                 finalForceVector += direction * sources[i].mass * 1/distance * 1 / distance;
 
-                if (sources[i].tag == "Sun" && distance < sources[i].radius - 0.1f)
+                if (sources[i].tag == "Sun" && distance < sources[i].radius - 0.1f && !gameCompleted)
                 {
                     RaycastHit hit;
                     // Does the ray intersect any objects excluding the player layer
@@ -65,6 +66,7 @@ public class Planet : MonoBehaviour
                         rb.bodyType = RigidbodyType2D.Static;
                         transform.parent = sources[i].transform.GetChild(0).GetChild(0);
                         //sunPoint = sources[i].transform;
+                        gameCompleted = true;
                         StartCoroutine(LevelCompletedRoutine());
                     }
                 }
@@ -90,8 +92,8 @@ public class Planet : MonoBehaviour
     {
         UIMGR.instance.ShowCompletedScreen();
         LevelCompleted?.Invoke();
-        yield return new WaitForSeconds(2);
-        SceneMgr.instance.OpenLevelSelector();
+        yield return new WaitForSeconds(0);
+        //SceneMgr.instance.OpenLevelSelector();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
