@@ -18,6 +18,14 @@ public class SceneMgr : MonoBehaviour
         QualitySettings.vSyncCount = 1;
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel") && SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     public void QuitGame()
     {
         Application.Quit();
