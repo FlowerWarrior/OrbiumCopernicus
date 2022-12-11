@@ -8,6 +8,7 @@ public class UIMGR : MonoBehaviour
     public static UIMGR instance;
     [SerializeField] GameObject lvlCompletedScreen;
     [SerializeField] TextMeshProUGUI levelIndicatorText;
+    [SerializeField] GameObject pauseMenu;
 
     private void Awake()
     {
@@ -25,5 +26,25 @@ public class UIMGR : MonoBehaviour
     public void ShowCompletedScreen()
     {
         lvlCompletedScreen.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (pauseMenu.activeInHierarchy)
+            {
+                pauseMenu.SetActive(false);
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
     }
 }
