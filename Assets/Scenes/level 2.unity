@@ -508,6 +508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3952d9db146a46b4288b0ede18661509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &381018249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1842141128, guid: c0a0dda8ad561674797d2941c816a3e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 89715561}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,7 +3068,7 @@ PrefabInstance:
     - target: {fileID: 4474865278768033811, guid: 04a2aef30afc6df449957682fff59cb9,
         type: 3}
       propertyPath: mass
-      value: 200
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4474865278768033812, guid: 04a2aef30afc6df449957682fff59cb9,
         type: 3}
@@ -3196,13 +3202,13 @@ PrefabInstance:
     - target: {fileID: 5401897945455527885, guid: 1173b145cf1325b43a37a634452af324,
         type: 3}
       propertyPath: objectsToRespawn.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5401897945455527885, guid: 1173b145cf1325b43a37a634452af324,
         type: 3}
       propertyPath: objectsToRespawn.Array.data[0]
       value: 
-      objectReference: {fileID: 6751344730728869438}
+      objectReference: {fileID: 381018249}
     - target: {fileID: 5401897945455527887, guid: 1173b145cf1325b43a37a634452af324,
         type: 3}
       propertyPath: m_Name
