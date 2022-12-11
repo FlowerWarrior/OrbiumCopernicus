@@ -9,6 +9,7 @@ public class TotalStarsMgr : MonoBehaviour
     [SerializeField] Transform[] planets;
     [SerializeField] Transform buttonsHolder;
     [SerializeField] TextMeshProUGUI textNextUnlock;
+    [SerializeField] TextMeshProUGUI textTotalStars;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class TotalStarsMgr : MonoBehaviour
             if (PlayerPrefs.GetInt($"starsCollected{i}", -1) >= 0)
             {
                 buttonsHolder.GetChild(i).gameObject.GetComponent<Image>().color = Color.green;
+                totalStars += PlayerPrefs.GetInt($"starsCollected{i}", -1);
             }
         }
 
@@ -38,6 +40,12 @@ public class TotalStarsMgr : MonoBehaviour
         }
 
         textNextUnlock.text = $"Collect {totalStars % starsPerPlanet} more to get next planet collectible.";
+        if (totalStars == 0)
+        {
+            textNextUnlock.text = $"Collect 3 more to get next planet collectible.";
+        }
+
+        textTotalStars.text = $"Total stars: {totalStars}";
     }
 
     // Update is called once per frame

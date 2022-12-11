@@ -48,4 +48,9 @@ public class SceneMgr : MonoBehaviour
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
+
+    public int GetCurrentLevelId()
+    {
+        return SceneManager.GetActiveScene().buildIndex - 2;
+    }
 }

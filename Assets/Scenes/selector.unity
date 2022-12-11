@@ -2311,6 +2311,7 @@ MonoBehaviour:
   - {fileID: 327215256}
   buttonsHolder: {fileID: 1962727937}
   textNextUnlock: {fileID: 851255944}
+  textTotalStars: {fileID: 1776999382}
 --- !u!1 &1847895685
 GameObject:
   m_ObjectHideFlags: 0
