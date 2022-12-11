@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioField buttonKickoff;
     [SerializeField] AudioField earthKicked;
     [SerializeField] AudioField earthExplosion;
+    [SerializeField] AudioField ufoIn;
+    [SerializeField] AudioField ufoOut;
 
     [System.Serializable]
     public struct AudioField
@@ -40,6 +42,8 @@ public class AudioManager : MonoBehaviour
         Planet.Exploded += PlayEarthExplosion;
         Draggable.PickedUp += PlayPickedUp;
         Draggable.Dropped += PlayDropped;
+        UFO.UfoIn += PlayUfoIn;
+        UFO.UfoOut += PlayUfoOut;
     }
 
     private void OnDisable()
@@ -51,6 +55,8 @@ public class AudioManager : MonoBehaviour
         Planet.Exploded -= PlayEarthExplosion;
         Draggable.PickedUp -= PlayPickedUp;
         Draggable.Dropped -= PlayDropped;
+        UFO.UfoIn -= PlayUfoIn;
+        UFO.UfoOut -= PlayUfoOut;
     }
 
     private void PlayButtonKickoff()
@@ -86,5 +92,15 @@ public class AudioManager : MonoBehaviour
     private void PlayDropped()
     {
         PlayAudioEffect(audioDrop);
+    }
+
+    private void PlayUfoIn()
+    {
+        PlayAudioEffect(ufoIn);
+    }
+
+    private void PlayUfoOut()
+    {
+        PlayAudioEffect(ufoOut);
     }
 }

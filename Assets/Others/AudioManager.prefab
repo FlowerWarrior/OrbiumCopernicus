@@ -66,4 +66,10 @@ MonoBehaviour:
     volume: 1
   earthExplosion:
     clip: {fileID: 8300000, guid: bb894858aa8a6aa4ab06d816ecc2a328, type: 3}
-    volume: 1
+    volume: 0.9
+  ufoIn:
+    clip: {fileID: 8300000, guid: d302e8860d607994087b284a9394b2f9, type: 3}
+    volume: 0.3
+  ufoOut:
+    clip: {fileID: 8300000, guid: 3c80392330f71724b9d1ab4df0894c54, type: 3}
+    volume: 0.3

@@ -10,6 +10,8 @@ public class UFO : MonoBehaviour
     bool didTeleport = false;
 
     float teleportTimer = 999f;
+    public static System.Action UfoIn;
+    public static System.Action UfoOut;
 
     private void OnEnable()
     {
@@ -61,12 +63,15 @@ public class UFO : MonoBehaviour
 
     IEnumerator ReleaseAfterRoutine()
     {
+        UfoIn?.Invoke();
         yield return new WaitForSeconds(teleportTime);
 
         playerRb.transform.position = targetPos;
         playerRb.bodyType = RigidbodyType2D.Dynamic;
         playerRb.velocity = Vector3.zero;
         playerRb.velocity = savedVelocity;
+
+        UfoOut?.Invoke();
 
         playerRb.transform.GetChild(0).gameObject.SetActive(true);
         ray.SetActive(false);

@@ -51,6 +51,7 @@ public class TutorialMgr : MonoBehaviour
         // show level completed
         textsHolder.SetActive(false);
         tutorialScreen.SetActive(true);
+        PlayerPrefs.SetInt("TutorialCompleted", 1);
     }
 
     private void UpdateQuestText()

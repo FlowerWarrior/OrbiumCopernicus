@@ -38,12 +38,12 @@ public class StarsMgr : MonoBehaviour
             activeStarsUI[i].SetActive(true);
         }
 
-        if (stars > PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentLevelId() - 1}", -1))
+        if (stars > PlayerPrefs.GetInt($"starsCollected{SceneMgr.instance.GetCurrentLevelId()}", -1))
         {
-            PlayerPrefs.SetInt($"starsCollected{SceneMgr.instance.GetCurrentLevelId() - 1 }", stars);
+            PlayerPrefs.SetInt($"starsCollected{SceneMgr.instance.GetCurrentLevelId()}", stars);
         }
 
-        Debug.LogWarning($"{SceneMgr.instance.GetCurrentLevelId() - 1 }");
+        Debug.LogWarning($"{SceneMgr.instance.GetCurrentLevelId()}");
     }
 
     private void ResetStars()
@@ -62,5 +62,10 @@ public class StarsMgr : MonoBehaviour
     public void OpenLevelSelector()
     {
         SceneMgr.instance.OpenLevelSelector();
+    }
+
+    public void RestartLevel()
+    {
+        SceneMgr.instance.ReloadCurrentScene();
     }
 }

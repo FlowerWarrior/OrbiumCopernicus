@@ -16,7 +16,10 @@ public class UIMGR : MonoBehaviour
 
     private void Start()
     {
-        levelIndicatorText.text = $"{SceneMgr.instance.GetCurrentSceneIndex() - 1}.";
+        if (levelIndicatorText != null)
+        {
+            levelIndicatorText.text = $"{SceneMgr.instance.GetCurrentSceneIndex() - 1}.";
+        }
     }
 
     public void ShowCompletedScreen()

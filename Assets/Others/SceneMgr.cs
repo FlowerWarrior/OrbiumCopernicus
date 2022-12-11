@@ -35,6 +35,11 @@ public class SceneMgr : MonoBehaviour
 
     public void OpenLevel(int id)
     {
+        if (PlayerPrefs.GetInt("TutorialCompleted", 0) == 0)
+        {
+            SceneManager.LoadScene($"tutorial");
+            return;
+        }
         SceneManager.LoadScene($"level {id}");
     }
 
@@ -52,5 +57,10 @@ public class SceneMgr : MonoBehaviour
     public int GetCurrentLevelId()
     {
         return SceneManager.GetActiveScene().buildIndex - 2;
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

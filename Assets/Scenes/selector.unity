@@ -2807,6 +2807,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lvl Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9120164368281238956, guid: fd8e7413658fd84429db4235f45fa840,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9120164368281238957, guid: fd8e7413658fd84429db4235f45fa840,
         type: 3}
       propertyPath: m_Pivot.x
