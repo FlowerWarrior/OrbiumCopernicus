@@ -17,7 +17,6 @@ public class MusicMgr : MonoBehaviour
         else
         {
             instance = this;
-
         }
     }
 
